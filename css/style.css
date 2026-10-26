@@ -1,0 +1,68 @@
+:root{--fundo:#F7F0E6;--papel:#FFFBF4;--tinta:#3B2F28;--suave:#7A6A5E;--oliva:#5C6B3C;--oliva-esc:#46532C;--ocre:#E2B04A;--rosa:#EBC3AE;--sombra:0 2px 4px rgba(90,60,30,.06),0 18px 40px -12px rgba(90,60,30,.18);--ease:cubic-bezier(.45,0,.25,1)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:400 1.05rem/1.6 'Nunito',sans-serif;overflow-x:hidden;position:relative}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.1;margin:0}
+.blob{position:absolute;z-index:0;pointer-events:none}
+.b1{width:520px;height:480px;background:var(--rosa);top:-120px;right:-140px;border-radius:62% 38% 55% 45%/48% 60% 40% 52%;opacity:.7}
+.b2{width:300px;height:300px;background:var(--ocre);top:340px;left:-130px;border-radius:40% 60% 50% 50%/55% 45% 55% 45%;opacity:.35}
+.hero{position:relative;z-index:1;padding:clamp(4rem,12vw,9rem) 8vw 5rem;max-width:62rem}
+.hero h1{font-size:clamp(2.8rem,8vw,6rem);letter-spacing:-.02em}
+.hero p{max-width:30rem;font-size:1.2rem;color:var(--suave);margin-top:1.5rem}
+main{position:relative;z-index:1;padding:0 6vw 6rem}
+.pedido{background:var(--papel);border-radius:2rem 3.5rem 2rem 2.5rem;padding:clamp(1.5rem,4vw,3rem);box-shadow:var(--sombra);max-width:44rem;margin-left:clamp(0rem,6vw,8rem);position:relative}
+.pedido::after{content:'';position:absolute;inset:auto -1.6rem -1.6rem auto;width:7rem;height:7rem;background:var(--ocre);opacity:.5;border-radius:50% 50% 45% 55%;z-index:-1}
+.pedido h2{font-size:1.9rem;margin-bottom:1.5rem}
+.linha{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+label{display:flex;flex-direction:column;gap:.3rem;font-weight:600;font-size:.95rem;flex:1;min-width:7rem}
+input,select{font:inherit;padding:.65rem .9rem;border:1.5px solid #E5D6C3;border-radius:.9rem;background:#fff;color:var(--tinta);transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+input:focus,select:focus{outline:none;border-color:var(--oliva);box-shadow:0 0 0 4px rgba(92,107,60,.18)}
+.tipo{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:1.2rem 0}
+.tipo label{flex:0 0 auto;flex-direction:row;align-items:center;min-width:0;font-weight:600}
+.tipo input[type=radio]{display:none}
+.tipo span{padding:.5rem 1.1rem;border-radius:2rem;background:#F1E6D6;cursor:pointer;transition:all .3s var(--ease)}
+.tipo input:checked+span{background:var(--oliva);color:#fff;transform:translateY(-1px)}
+.tipo select{padding:.3rem .5rem}
+fieldset{border:0;padding:0;margin:0 0 1.8rem}
+legend{font-weight:600;margin-bottom:.6rem;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{flex:0 0 auto;min-width:0;flex-direction:row;font-weight:400}
+.chip input{position:absolute;opacity:0}
+.chip span{display:inline-block;padding:.45rem 1rem;border-radius:2rem;background:#F1E6D6;cursor:pointer;transition:all .3s var(--ease)}
+.chip span:hover{background:var(--rosa);transform:translateY(-2px)}
+.chip input:checked+span{background:var(--ocre);box-shadow:0 6px 14px -6px rgba(150,100,10,.5)}
+.chip input:focus-visible+span{outline:3px solid var(--oliva);outline-offset:2px}
+.botao{font:600 1rem 'Nunito',sans-serif;background:var(--oliva);color:#fff;border:0;border-radius:3rem;padding:.9rem 1.8rem;cursor:pointer;box-shadow:0 8px 18px -8px rgba(70,83,44,.7);transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease)}
+.botao:hover{background:var(--oliva-esc);transform:translateY(-3px);box-shadow:0 14px 24px -10px rgba(70,83,44,.7)}
+.botao:active{transform:scale(.97)}
+.resultado{margin-top:5rem}
+.resultado h2,.solicitacoes h2{font-size:2.2rem;margin-bottom:1.8rem}
+.labs{display:flex;flex-wrap:wrap;gap:2rem}
+.lab{background:var(--papel);border-radius:2.5rem 1.5rem 3rem 1.5rem;padding:1.8rem;width:min(100%,21rem);box-shadow:var(--sombra);animation:entra .6s var(--ease) both;animation-delay:calc(var(--i)*.09s);transition:transform .4s var(--ease)}
+.lab:nth-child(even){margin-top:2rem;border-radius:1.5rem 3rem 1.5rem 2.5rem}
+.lab:nth-child(3n){margin-left:-1rem}
+.lab:hover{transform:translateY(-6px) rotate(-.4deg)}
+.lab.ocupado{opacity:.6;background:#F3E8DA}
+@keyframes entra{from{opacity:0;transform:translateY(24px)}}
+.lab-topo h3{font-size:1.5rem}
+.so{color:var(--suave);font-size:.9rem}
+.dica{background:var(--rosa);display:inline-block;padding:.2rem .8rem;border-radius:2rem;font-size:.85rem;font-weight:600;margin:.8rem 0 0}
+.chips.pequeno{margin:1rem 0 1.4rem}.chips.pequeno span{font-size:.82rem;padding:.2rem .7rem;border-radius:2rem;background:#F1E6D6}
+.aviso{color:#9A4A2A;font-weight:600;margin:0}
+.descartes{margin-top:2rem;color:var(--suave);font-size:.95rem;max-width:44rem}
+.solicitacoes{margin-top:6rem;max-width:44rem;margin-left:clamp(0rem,10vw,14rem)}
+.item{background:var(--papel);border-radius:1.5rem;padding:1.1rem 1.5rem;margin-bottom:1rem;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:var(--sombra);border-left:8px solid var(--ocre);animation:entra .5s var(--ease)}
+.item.aprovada{border-color:var(--oliva)}.item.recusada{border-color:#B8654A;opacity:.7}
+.status{font-weight:600;font-size:.9rem}
+.acoes button{font:600 .9rem 'Nunito';border:0;border-radius:2rem;padding:.4rem 1rem;margin-left:.4rem;background:var(--oliva);color:#fff;cursor:pointer;transition:transform .25s var(--ease)}
+.acoes button:hover{transform:translateY(-2px)}.acoes .sec{background:#B8654A}
+.vazio{color:var(--suave)}
+.secretaria{flex-direction:row;align-items:center;gap:.6rem;margin-top:2rem;font-weight:400;color:var(--suave)}
+#toast{position:fixed;bottom:2rem;left:50%;transform:translate(-50%,120%);background:var(--tinta);color:#fff;padding:.8rem 1.6rem;border-radius:3rem;transition:transform .5s var(--ease);z-index:9}
+#toast.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.combo{position:relative}
+#opcoes{position:absolute;top:100%;left:0;right:0;z-index:5;margin:.35rem 0 0;padding:.4rem;list-style:none;background:var(--papel);border-radius:1.2rem;box-shadow:var(--sombra);max-height:15rem;overflow:auto;animation:entra .25s var(--ease)}
+#opcoes li{padding:.55rem .9rem;border-radius:.8rem;font-weight:400;cursor:pointer;transition:background .2s var(--ease),transform .2s var(--ease)}
+#opcoes li:hover,#opcoes li.ativo{background:var(--rosa);transform:translateX(3px)}
+#opcoes li.nada{color:var(--suave);cursor:default}#opcoes li.nada:hover{background:none;transform:none}
